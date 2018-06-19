@@ -1,4 +1,5 @@
 const mapboxgl = require("mapbox-gl");
+const createMarker = require("./marker.js");
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2hlcnlsbmdxbCIsImEiOiJjamltNTFnOWswMGZvM3FuMHlscnp4ZzFyIn0.pdXa7CK4LpSNziHVx5cNJg';
 
@@ -8,10 +9,7 @@ const map = new mapboxgl.Map({
   zoom: 12, // starting zoom
   style: "mapbox://styles/mapbox/streets-v10" // mapbox has lots of different map styles available.
 });
-
-const marker = document.createElement("div");
-marker.style.width = "32px";
-marker.style.height = "39px";
-marker.style.backgroundImage = "url(http://i.imgur.com/WbMOfMl.png)";
-
-new mapboxgl.Marker(marker).setLngLat([-74.009, 40.705]).addTo(map);
+console.log(createMarker('activity', [-74.009, 40.705]));
+createMarker('activity', [-74.009, 40.705]).addTo(map);
+createMarker('hotel', [-74.012, 40.703]).addTo(map);
+createMarker('restaurant', [-74.010, 40.701]).addTo(map);
